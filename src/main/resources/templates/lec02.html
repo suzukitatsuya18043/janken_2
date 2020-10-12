@@ -12,11 +12,13 @@
       <div th:if="${name}">
         Hi [[${name}]]
       </div>
-    <input type="button" onclick="0" value="ぐー">
-    <input type="button" onclick="1" value="ちょき">
-    <input type="button" onclick="2" value="ぱー">
-      <div th:if="${onclick eq '0'}">
-        あなたの手 Gu
+    <a href="/lec02?Jankenhand=GU">ぐー</a>
+    <a href="/lec02?Jankenhand=TYOKI">ちょき</a>
+    <a href="/lec02?Jankenhand=PA">ぱー</a>
+    <p>
+    <div th:if="${Jankenhand}">
+        あなたの手 [[${Jankenhand}]]
+        相手の手 GU
   </form>
 </body>
 </html>

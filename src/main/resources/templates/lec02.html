@@ -7,12 +7,16 @@
 
 <body>
   <h1>Lec02 GET!</h1>
-  <form action="./lec02.php" method="post">
+  <form action="/lec02" method="post">
     <p>
-      Hi $_POST["name"]
-      <a href="./GU.html">グー</a>
-      <a href="./THOKI.html">チョキ</a>
-      <a href="./PA.html">パー</a>
+      <div th:if="${name}">
+        Hi [[${name}]]
+      </div>
+    <input type="button" onclick="0" value="ぐー">
+    <input type="button" onclick="1" value="ちょき">
+    <input type="button" onclick="2" value="ぱー">
+      <div th:if="${onclick eq '0'}">
+        あなたの手 Gu
   </form>
 </body>
 </html>

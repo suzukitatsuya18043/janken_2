@@ -1,16 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.springframework.org/schema/security">
 
 <head>
   <meta charset="utf-8">
+  <title>SpringBoot lec03</title>
 </head>
 
 <body>
+  <a href="/logout">ログアウト</a>
   <h1>Lec02 GET!</h1>
   <form action="/lec02" method="post">
     <p>
-      <div th:if="${name}">
-        Hi [[${name}]]
+      エントリー
+      <p>
+        ・ [[${login_user}]]
       </div>
     <a href="/lec02?Janken_hand=0">ぐー</a>
     <a href="/lec02?Janken_hand=1">ちょき</a>

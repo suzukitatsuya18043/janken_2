@@ -1,4 +1,4 @@
-package oit.is.z0968.kaizi.janken.model;
+package oit.is.z0968.kaizi.janken.model.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -9,12 +9,9 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-/**
- * Sample3AuthConfiguration
- */
 @Configuration
 @EnableWebSecurity
-public class Sample3AuthConfiguration extends WebSecurityConfigurerAdapter {
+public class Lec03AuthConfiguration extends WebSecurityConfigurerAdapter {
 
   /**
    * 誰がログインできるか(認証処理)
@@ -24,7 +21,7 @@ public class Sample3AuthConfiguration extends WebSecurityConfigurerAdapter {
 
     // $ sshrun htpasswd -nbBC 10 user1 pAssw0rd
     auth.inMemoryAuthentication().withUser("suzukitatsuya18043")
-        .password("$2y$10$Y9D3vOREZJNPZuRMYE.SN.9EtUncHiiikX9JP3B3Q1b2EfaGGt3w.").roles("USER");
+        .password(passwordEncoder().encode("Oitnosigechan717")).roles("USER");
     auth.inMemoryAuthentication().withUser("admin")
         .password("$2y$10$rJ9yqGht2W96MdIJICRQQOuUiYrt2eDokKnDuZZof2DPs83PN6QdC").roles("ADMIN");
 
@@ -47,13 +44,8 @@ public class Sample3AuthConfiguration extends WebSecurityConfigurerAdapter {
     // Spring Securityのフォームを利用してログインを行う
     http.formLogin();
 
-    // http://localhost:8000/sample3 で始まるURLへのアクセスはログインが必要
-    // antMatchers().authenticated がantMatchersへのアクセスに認証を行うことを示す
-    // antMatchers()の他にanyRequest()と書くとあらゆるアクセス先を表現できる
-    // authenticated()の代わりにpermitAll()と書くと認証処理が不要であることを示す
-    http.authorizeRequests().antMatchers("/sample3/**").authenticated();
+    http.authorizeRequests().antMatchers("/lec02/**").authenticated();
 
-    // Spring Securityの機能を利用してログアウト．ログアウト時は http://localhost:8000/ に戻る
     http.logout().logoutSuccessUrl("/");
   }
 

@@ -12,13 +12,19 @@
       <div th:if="${name}">
         Hi [[${name}]]
       </div>
-    <a href="/lec02?Jankenhand=GU">ぐー</a>
-    <a href="/lec02?Jankenhand=TYOKI">ちょき</a>
-    <a href="/lec02?Jankenhand=PA">ぱー</a>
+    <a href="/lec02?Janken_hand=0">ぐー</a>
+    <a href="/lec02?Janken_hand=1">ちょき</a>
+    <a href="/lec02?Janken_hand=2">ぱー</a>
     <p>
-    <div th:if="${Jankenhand}">
-        あなたの手 [[${Jankenhand}]]
+    <div th:if="${Janken_hand}">
+        あなたの手 [[${Janken_hand}]]
+        <p>
         相手の手 GU
-  </form>
+        <p>
+    </div>
+    <div th:if="${result2}">
+        結果 [[${result2}]]
+    </div>
+      </form>
 </body>
 </html>

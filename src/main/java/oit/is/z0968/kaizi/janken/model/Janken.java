@@ -1,24 +1,40 @@
-package oit.is.z0968.kaizi.janken.controller;
+package oit.is.z0968.kaizi.janken.model;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
-@Controller
+
 public class Janken {
+int hand;
 
-  @GetMapping("/lec02janken")
-  public String lec02() {
-    return "lec02janken.html";
-  }
+ public Janken(int hand){
+   this.hand = hand;
+ }
 
-  @PostMapping("/lec02janken")
-  public String lec02(@RequestParam Integer onclick, ModelMap model) {
-    model.addAttribute("onclick", onclick);
-        return "lec02janken.html";
+ public String result(){
+  String zibun = "";
+  if(hand == 0){
+    zibun = "ぐー";
   }
+  if(hand == 1){
+    zibun = "ちょき";
+  }
+  if(hand == 2){
+    zibun = "ぱー";
+  }
+  return zibun;
+ }
+
+ public String result3(){
+  String kekka="";
+  if(hand == 0){
+    kekka = "あいこ";
+  }
+  if(hand == 1){
+    kekka = "まけ";
+  }
+  if(hand == 2){
+    kekka = "かち";
+  }
+  return kekka;
+ }
 
 }

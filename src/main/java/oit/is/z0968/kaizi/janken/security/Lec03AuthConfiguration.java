@@ -1,4 +1,4 @@
-package oit.is.z0968.kaizi.janken.model.security;
+package oit.is.z0968.kaizi.janken.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -19,11 +19,11 @@ public class Lec03AuthConfiguration extends WebSecurityConfigurerAdapter {
   @Override
   protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 
-    // $ sshrun htpasswd -nbBC 10 user1 pAssw0rd
-    auth.inMemoryAuthentication().withUser("suzukitatsuya18043")
-        .password(passwordEncoder().encode("Oitnosigechan717")).roles("USER");
-    auth.inMemoryAuthentication().withUser("admin")
-        .password("$2y$10$rJ9yqGht2W96MdIJICRQQOuUiYrt2eDokKnDuZZof2DPs83PN6QdC").roles("ADMIN");
+    // $ sshrun htpasswd -nbBC 10 tatsuya Sigebu717
+    auth.inMemoryAuthentication().withUser("Tatsuya")
+        .password("$2y$10$OTilyNhXu1SlHPh5zGr.Bea0ou7OYU8AUPZwazvY9FgoDZP.zvvFu").roles("USER");
+    // $ sshrun htpasswd -nbBC 10 admin Admin
+    auth.inMemoryAuthentication().withUser("admin").password("$2y$10$6yVW.Ct9xNjJah4LBgXYsucT3x8Ba/lEF1pAieei9URujzmISdgLK").roles("USER");
 
     // 開発中は↓の書き方でも良いが，平文でパスワードが保存される
     // auth.inMemoryAuthentication().withUser("user1").password(passwordEncoder().encode("pAssw0rd")).roles("USER");
